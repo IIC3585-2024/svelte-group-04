@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { createEventDispatcher } from 'svelte';
 	import { spring } from 'svelte/motion';
 
 	export let count = 0;
