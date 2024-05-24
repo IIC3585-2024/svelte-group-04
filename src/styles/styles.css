@@ -1,0 +1,30 @@
+@import './variables.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+}
+
+a {
+	text-decoration: none;
+	color: var(--color-primary);
+	transition: 0.4s;
+  	padding: 3px;
+}
+
+.flex {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+body {
+	min-height: 100vh;
+	color: var(--color-text);
+	background: var(--color-background);
+	line-height: 1.6;
+	font-family: 'Urbanist', sans-serif;
+}
