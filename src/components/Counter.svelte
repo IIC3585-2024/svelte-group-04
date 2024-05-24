@@ -13,8 +13,8 @@
 		// handle negative numbers
 		return ((n % m) + m) % m;
 	}
-
 </script>
+
 <div class="counter" class:counter--active={isActive}>
 	<button on:click={() => (count -= 1)} aria-label="Decrease the counter by one">
 		<svg aria-hidden="true" viewBox="0 0 1 1">

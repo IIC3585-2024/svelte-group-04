@@ -3,7 +3,6 @@
 	import welcome from '$lib/images/svelte-welcome.webp';
 	import welcome_fallback from '$lib/images/svelte-welcome.png';
 	import FancyList from '../components/FancyList.svelte';
-
 </script>
 
 <svelte:head>
@@ -12,7 +11,7 @@
 </svelte:head>
 
 <section>
-	<h2> try editing <strong>src/routes/+page.svelte</strong> </h2>
+	<h2>try editing <strong>src/routes/+page.svelte</strong></h2>
 	<Counter count={10} isActive={true}>
 		<div>New Default Slot</div>
 		<div slot="hello">New Hello Slot</div>
