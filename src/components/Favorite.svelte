@@ -1,10 +1,19 @@
 <script lang="ts">
+	import { createEventDispatcher } from 'svelte';
+
 	export let isFavorite = false;
-	export let type: 'filled' | undefined;
+	export let type: 'filled' | undefined = undefined;
+
+	const dispatch = createEventDispatcher();
+
+	const handleClick = () => {
+		isFavorite = !isFavorite;
+		dispatch('click', { isFavorite });
+	};
 </script>
 
 <div class={`favorite favorite--${type}`}>
-	<button on:click|preventDefault|stopPropagation={() => (isFavorite = !isFavorite)}>
+	<button on:click|preventDefault|stopPropagation={handleClick}>
 		<i class="material-icons favorite__heart" class:favorite__heart--active={isFavorite}>
 			{isFavorite ? 'favorite' : 'favorite_border'}
 		</i>

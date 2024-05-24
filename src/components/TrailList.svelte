@@ -1,17 +1,19 @@
 <script setup lang="ts">
+	import { isFavorite, toggleFavorite } from '../stores/favorites';
 	import type { Trail } from '../types/Trail';
 	import TrailCard from './TrailCard.svelte';
-	// import { useFavoritesStore } from '../stores/favorites';
 
 	export let trails: Trail[] = [];
-
-	// const favoritesStore = useFavoritesStore();
 </script>
 
 <div class="trail-list">
 	{#each trails as trail}
 		<a href={`/trails/${trail.id}`}>
-			<TrailCard {trail} />
+			<TrailCard
+				{trail}
+				isFavorite={isFavorite(trail.id)}
+				on:toggle-favorite={() => toggleFavorite(trail.id)}
+			/>
 		</a>
 	{/each}
 </div>

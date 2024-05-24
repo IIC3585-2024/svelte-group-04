@@ -1,14 +1,21 @@
 <script setup lang="ts">
+	import { createEventDispatcher } from 'svelte';
 	import type { Trail } from '../types/Trail';
 	import Favorite from './Favorite.svelte';
 	export let trail: Trail = {} as Trail;
 	export let isFavorite = false;
+	const dispatch = createEventDispatcher();
+
+	const handleClick = () => {
+		isFavorite = !isFavorite;
+		dispatch('toggle-favorite', { isFavorite });
+	};
 </script>
 
 <div class="card">
 	<div class="card__image" style:background-image={`url(${trail.pictures[0]})`}>
 		<div class="card__favorite">
-			<Favorite {isFavorite} type="filled" />
+			<Favorite {isFavorite} type="filled" on:click={handleClick} />
 		</div>
 	</div>
 	<h2>{trail.title}</h2>
