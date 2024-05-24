@@ -2,6 +2,7 @@
 	<nav>
 		<a href="/">Home</a>
 		<a href="/trails">Trails</a>
+		<a href="/favorites">Favorites</a>
 	</nav>
 </header>
 
