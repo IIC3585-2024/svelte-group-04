@@ -1,6 +1,5 @@
 <script>
 	import Counter from '../components/Counter.svelte';
-	import { getTrails } from '../services/trailsService';
 </script>
 
 <svelte:head>
@@ -12,14 +11,6 @@
 	<h2>try editing <strong>src/routes/+page.svelte</strong></h2>
 	<Counter count={10} isActive={true}></Counter>
 </section>
-
-{#await getTrails()}
-	<p>Waiting</p>
-{:then trails}
-	<p>{JSON.stringify(trails)}</p>
-{:catch error}
-	<p>{error.message}</p>
-{/await}
 
 <style>
 	section {
