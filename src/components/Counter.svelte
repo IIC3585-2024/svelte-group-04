@@ -34,10 +34,6 @@
 		</svg>
 	</button>
 </div>
-<div style:display="flex" style:flex-direction="column">
-	<slot>Default Slot!</slot>
-	<slot name="hello">Hello Slot!</slot>
-</div>
 
 <style lang="scss">
 	.counter {
