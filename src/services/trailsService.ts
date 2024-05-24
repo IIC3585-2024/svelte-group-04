@@ -1,3 +1,4 @@
+import { error } from '@sveltejs/kit';
 import type { Trail } from '../types/Trail';
 import { ConnectionError, NotFoundError, ServerError } from './errors';
 
@@ -38,16 +39,16 @@ export async function getTrails({
 
 	try {
 		response = await fetch(url);
-	} catch (error) {
-		throw new ConnectionError();
+	} catch (err) {
+		error(500, 'Connection error');
 	}
 
 	if (response.status === 404) {
-		throw new NotFoundError();
+		error(404, 'Trails not found');
 	}
 
 	if (response.status !== 200) {
-		throw new ServerError();
+		error(response.status, 'Failed to fetch trails');
 	}
 
 	return await response.json();

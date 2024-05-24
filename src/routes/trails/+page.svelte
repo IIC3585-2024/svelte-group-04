@@ -1,14 +1,9 @@
-<script>
+<script lang="ts">
 	import TrailList from '../../components/TrailList.svelte';
-	import { getTrails } from '../../services/trailsService';
+	export let data;
 </script>
 
-<h1>Trails Page</h1>
-
-{#await getTrails()}
-	<p>Waiting</p>
-{:then trails}
-	<TrailList {trails} />
-{:catch error}
-	<p>{error.message}</p>
-{/await}
+<div class="flex">
+	<h1>Trails Page</h1>
+	<TrailList trails={data.trails} />
+</div>
