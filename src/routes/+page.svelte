@@ -52,6 +52,7 @@
 		flex-direction: row;
 		justify-content: center;
 		align-items: space-between;
+		flex-wrap: wrap;
 		flex: 0.6;
 		gap: var(--spacing-3);
 	}
@@ -83,6 +84,7 @@
 			display: flex;
 			flex-direction: row;
 			justify-content: center;
+			flex-wrap: wrap;
 			align-items: center;
 			gap: var(--spacing-5);
 		}
