@@ -15,7 +15,6 @@
 	};
 </script>
 
-<h1>Hello {id}</h1>
 <div class="flex">
 	<div class="trail">
 		<Carrousel pictures={trail.pictures} />
@@ -24,7 +23,7 @@
 		</div>
 		<div class="trail__content">
 			<div class="trail__activity">
-				<Badge icon="hiking" text="trail.activity" />
+				<Badge icon="hiking" text={trail.activity} />
 				<div class="trail__icons">
 					<Rating score={trail.stats.rank} />
 					<Favorite isFavorite={isFavorite(trail.id)} on:click={handleFavorite} />
