@@ -22,21 +22,17 @@
 	</div>
 	<div class="home__images">
 		<div class="home__vimages">
-			<Tooltip title={data.trails[0].title}>
-				<a href={`/trails/${data.trails[0].id}`}>
-					<Carrousel pictures={data.trails[0].pictures} type={'hidden'} automaticSlide={true} />
-				</a>
-			</Tooltip>
-
-			<Tooltip title={data.trails[1].title}>
-				<a href={`/trails/${data.trails[1].id}`}>
-					<img
-						class="home__image"
-						src={data.trails[1].pictures[0]}
-						alt={`Picture trail ${data.trails[1].id}`}
-					/>
-				</a>
-			</Tooltip>
+			{#each data.trails.slice(0, 2) as trail, index}
+				<Tooltip title={trail.title}>
+					<a href={`/trails/${trail.id}`}>
+						{#if index === 0}
+							<Carrousel pictures={trail.pictures} type={'hidden'} automaticSlide={true} />
+						{:else}
+							<img class="home__image" src={trail.pictures[0]} alt={`Picture trail ${trail.id}`} />
+						{/if}
+					</a>
+				</Tooltip>
+			{/each}
 		</div>
 		<div class="home__vimages">
 			{#each data.trails.slice(2) as trail, index}
