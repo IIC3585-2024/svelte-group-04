@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Carrousel from '../components/Carrousel.svelte';
+	import Tooltip from '../components/Tooltip.svelte';
 	export let data;
 </script>
 
@@ -9,7 +10,7 @@
 </svelte:head>
 
 <section>
-	<div class="home__greeting">
+	<div class="home__greetings">
 		<h2 class="home__app">Outdoor Life</h2>
 		<h1 class="home__title">
 			Discover the <span class="home__title--highlight">best trails</span> in the world!
@@ -21,12 +22,30 @@
 	</div>
 	<div class="home__images">
 		<div class="home__vimages">
-			<Carrousel pictures={data.trails[0].pictures} type={'hidden'} automaticSlide={true} />
-			<img class="home__image" src={data.trails[1].pictures[0]} alt="1" />
+			<Tooltip title={data.trails[0].title}>
+				<a href={`/trails/${data.trails[0].id}`}>
+					<Carrousel pictures={data.trails[0].pictures} type={'hidden'} automaticSlide={true} />
+				</a>
+			</Tooltip>
+
+			<Tooltip title={data.trails[1].title}>
+				<a href={`/trails/${data.trails[1].id}`}>
+					<img
+						class="home__image"
+						src={data.trails[1].pictures[0]}
+						alt={`Picture trail ${data.trails[1].id}`}
+					/>
+				</a>
+			</Tooltip>
 		</div>
 		<div class="home__vimages">
-			<img class="home__image" src={data.trails[2].pictures[0]} alt="1" />
-			<img class="home__image" src={data.trails[3].pictures[0]} alt="1" />
+			{#each data.trails.slice(2) as trail, index}
+				<Tooltip title={trail.title}>
+					<a href={`/trails/${trail.id}`}>
+						<img class="home__image" src={trail.pictures[0]} alt={`Picture trail ${trail.id}`} />
+					</a>
+				</Tooltip>
+			{/each}
 		</div>
 	</div>
 </section>
@@ -42,10 +61,26 @@
 	}
 
 	.home {
-		&__greeting {
+		&__greetings {
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
+		}
+
+		&__app {
+			color: var(--color-primary);
+		}
+
+		&__title {
+			font-size: var(--font-size-xlg);
+			font-weight: 500;
+			color: var(--color-primary);
+			margin: 0 0 var(--spacing-3) 0;
+
+			&--highlight {
+				font-weight: 700;
+				color: var(--color-highlight);
+			}
 		}
 
 		&__images {
@@ -68,6 +103,7 @@
 			margin: 0 0 0 0;
 			width: 100%;
 			box-shadow: var(--shadow);
+			cursor: pointer;
 		}
 	}
 </style>
