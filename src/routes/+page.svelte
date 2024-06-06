@@ -96,7 +96,7 @@
 
 		&__image {
 			border-radius: var(--border-radius-3);
-			margin: 0 0 0 0;
+			margin: 0 0 var(--spacing-5) 0;
 			width: 100%;
 			box-shadow: var(--shadow);
 			cursor: pointer;
