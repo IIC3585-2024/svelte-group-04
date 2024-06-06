@@ -23,6 +23,15 @@ export async function obtainRandomTrails(num: number): Promise<Trail[]> {
 	return selected;
 }
 
+export async function getRandomTrail(): Promise<Trail> {
+	const limit: number = 2454
+	const random: number = Math.floor(Math.random() * limit) + 1
+	const stringNumber = random.toString()
+	const trail: Trail = await getTrail(stringNumber)
+
+	return trail
+}
+
 export async function getTrails({
 	page = 1,
 	limit = 9,
