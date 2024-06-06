@@ -15,5 +15,14 @@
 	nav {
 		display: flex;
 		justify-content: center;
+		align-items: center;
+		gap: var(--size-3);
+		width: 100%;
+		height: var(--size-3);
+		font-size: var(--font-size-med);
+	}
+
+	nav a {
+		font-weight: 600;
 	}
 </style>
