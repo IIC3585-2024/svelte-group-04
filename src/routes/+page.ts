@@ -1,3 +1,12 @@
-// since there's no dynamic data here, we can prerender
-// it so that it gets served as a static asset in production
-export const prerender = true;
+import { getRandomTrail } from '../services/trailsService';
+
+/** @type {import('./$types').PageLoad} */
+export async function load({ params }) {
+  const trails = []
+  for (let i = 0; i < 4; i++) {
+    trails.push(await getRandomTrail())
+  }
+  return {
+    trails
+  };
+}
