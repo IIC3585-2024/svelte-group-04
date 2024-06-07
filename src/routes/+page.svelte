@@ -62,6 +62,8 @@
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
+			width: 30%;
+			min-width: 300px;
 		}
 
 		&__app {
